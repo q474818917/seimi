@@ -41,6 +41,7 @@ import java.util.Set;
 
 /**
  * 上下文加载器
+ * 扫描注解，加载被注解的类：queue、interceptor、crawler
  * @author 汪浩淼 et.tw@163.com
  * @since 2015/6/17.
  */

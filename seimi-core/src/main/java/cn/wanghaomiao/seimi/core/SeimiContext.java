@@ -45,6 +45,10 @@ import java.util.concurrent.Executors;
  * 初始化上下文环境
  * @author 汪浩淼 [et.tw@163.com]
  *         Date: 2015/6/26.
+ * 使用AnnotationConfigApplicationContext加载配置Bean
+ * ApplicationContext ctx = new AnnotationConfigApplicationContext();
+ * ctx.register(ScanConfig.class);
+ * ScanConfig是被@Configuration
  */
 public class SeimiContext  extends AnnotationConfigApplicationContext {
     private int BASE_THREAD_NUM = 2;
@@ -90,7 +94,10 @@ public class SeimiContext  extends AnnotationConfigApplicationContext {
             }
         });
     }
-
+    
+    /**
+     * 根据crawler生成crawlerModel
+     */
     private void prepareCrawlerModels(){
         for (Class<? extends BaseSeimiCrawler> a:crawlers){
             CrawlerModel crawlerModel = new CrawlerModel(a,applicationContext);
